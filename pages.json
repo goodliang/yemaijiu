@@ -3,17 +3,35 @@
 		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
 	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
-			"path": "pages/index/index"
-			
-		},
-		{
-			"path": "pages/center/index",
-			"style": {
-				"navigationBarTitleText": "uView-center"
-			}
-		}
-	],
+        {
+            "path" : "pages/tabBar/index/index",
+            "style" : {}
+        }
+	    ,{
+            "path" : "pages/passport/login/login",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/tabBar/category/category",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/tabBar/28min/28min",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/tabBar/my/my",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/tabBar/cart/cart",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/passport/auth-wx/auth-wx",
+            "style" : {}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "新也买",
@@ -26,15 +44,30 @@
 	    "borderStyle": "black",
 	    "backgroundColor": "#ffffff",
 	    "list": [{
-	        "pagePath": "pages/index/index",
+	        "pagePath": "pages/tabBar/index/index",
 	        "iconPath": "static/index.png",
 	        "selectedIconPath": "static/index-selected.png",
 	        "text": "首页"
 	    }, {
-	        "pagePath": "pages/center/index",
+	        "pagePath": "pages/tabBar/category/category",
 	        "iconPath": "static/center.png",
 	        "selectedIconPath": "static/center-selected.png",
-	        "text": "我"
+	        "text": "分类"
+	    }, {
+	        "pagePath": "pages/tabBar/28min/28min",
+	        "iconPath": "static/center.png",
+	        "selectedIconPath": "static/center-selected.png",
+	        "text": "28分钟"
+	    }, {
+	        "pagePath": "pages/tabBar/cart/cart",
+	        "iconPath": "static/center.png",
+	        "selectedIconPath": "static/center-selected.png",
+	        "text": "购物车"
+	    }, {
+	        "pagePath": "pages/tabBar/my/my",
+	        "iconPath": "static/center.png",
+	        "selectedIconPath": "static/center-selected.png",
+	        "text": "我的"
 	    }]
 	}
 }

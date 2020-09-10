@@ -1,13 +1,8 @@
 <template>
 	<view class="content">
 		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">
-				uView - 多平台快速开发的UI框架
-			</text>
-		</view>
-		<view class="link-demo">
-			<u-link :color="$u.color['primary']" :under-line="true" href="http://www.uviewui.com">Link超链接组件演示</u-link>
+		<view class="button-demo">
+			<u-button :ripple="true" type="primary">按钮组件演示</u-button>
 		</view>
 	</view>
 </template>
@@ -20,10 +15,21 @@
 			}
 		},
 		onLoad() {
-
+           this.getData()
+		   uni.getLocation({
+		       type: 'wgs84',
+		       success: function (res) {
+		           console.log('当前位置的经度：' + res.longitude);
+		           console.log('当前位置的纬度：' + res.latitude);
+		       }
+		   });
 		},
 		methods: {
-
+			async getData(){
+				 let [err,res] = await this.$await(this.$axios.get('/api/user/lists'))
+				 console.log(res)
+				 console.log(err)
+			}
 		}
 	}
 </script>
@@ -36,7 +42,7 @@
 		justify-content: center;
 		padding: 40rpx;
 	}
-	
+
 	.logo {
 		height: 200rpx;
 		width: 200rpx;
@@ -54,6 +60,10 @@
 	.title {
 		font-size: 28rpx;
 		color: $u-content-color;
+	}
+	
+	.button-demo {
+		margin-top: 80rpx;
 	}
 	
 	.link-demo {

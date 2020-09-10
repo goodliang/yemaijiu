@@ -8,7 +8,7 @@
             "style" : {}
         }
 	    ,{
-            "path" : "pages/passport/login/login",
+            "path" : "pages/passport/login",
             "style" : {}
         }
         ,{
@@ -28,7 +28,23 @@
             "style" : {}
         }
         ,{
-            "path" : "pages/passport/auth-wx/auth-wx",
+            "path" : "pages/passport/auth-wx",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/order/index",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/address/index",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/address/creat",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/404/404",
             "style" : {}
         }
     ],

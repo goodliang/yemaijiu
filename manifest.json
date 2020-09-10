@@ -55,7 +55,9 @@
             /* ios打包配置 */
             "ios" : {},
             /* SDK配置 */
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "maps" : {}
+            }
         }
     },
     /* 快应用特有相关 */
@@ -66,7 +68,12 @@
         "setting" : {
             "urlCheck" : false
         },
-        "usingComponents" : true
+        "usingComponents" : true,
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "你的位置信息将用于小程序为你推荐附近的门店服务"
+            }
+        }
     },
     "mp-alipay" : {
         "usingComponents" : true

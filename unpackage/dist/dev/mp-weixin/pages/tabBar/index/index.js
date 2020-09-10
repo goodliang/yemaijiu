@@ -92,11 +92,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var components = {
-  uButton: function() {
-    return __webpack_require__.e(/*! import() | uview-ui/components/u-button/u-button */ "uview-ui/components/u-button/u-button").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-button/u-button.vue */ 99))
-  }
-}
+var components
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -141,8 +137,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 var _default =
 {
   data: function data() {
@@ -152,11 +146,15 @@ var _default =
   },
   onLoad: function onLoad() {
     this.getData();
+
     uni.getLocation({
       type: 'wgs84',
       success: function success(res) {
         console.log('当前位置的经度：' + res.longitude);
         console.log('当前位置的纬度：' + res.latitude);
+      },
+      fail: function fail(err) {
+        console.log('地址错误', err);
       } });
 
   },
@@ -165,6 +163,18 @@ var _default =
                   _this.$await(_this.$axios.get('/api/user/lists')));case 2:_yield$_this$$await = _context.sent;_yield$_this$$await2 = _slicedToArray(_yield$_this$$await, 2);err = _yield$_this$$await2[0];res = _yield$_this$$await2[1];
                 console.log(res);
                 console.log(err);case 8:case "end":return _context.stop();}}}, _callee);}))();
+    },
+    getLocation: function getLocation() {
+      uni.getLocation({
+        type: 'wgs84',
+        success: function success(res) {
+          console.log('当前位置的经度：' + res.longitude);
+          console.log('当前位置的纬度：' + res.latitude);
+        },
+        fail: function fail(err) {
+          console.log('地址错误', err);
+        } });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

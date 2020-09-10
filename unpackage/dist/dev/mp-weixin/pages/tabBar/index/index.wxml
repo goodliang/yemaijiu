@@ -1,1 +1,1 @@
-<view class="content data-v-1524273d"><image class="logo data-v-1524273d" src="/static/logo.png"></image><view class="button-demo data-v-1524273d"><u-button vue-id="e13d7d2e-1" ripple="{{true}}" type="primary" class="data-v-1524273d" bind:__l="__l" vue-slots="{{['default']}}">按钮组件演示</u-button></view></view>
+<view class="content data-v-1524273d"></view>

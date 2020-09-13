@@ -8,9 +8,14 @@
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(createApp) {__webpack_require__(/*! uni-pages */ 4);var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+
 var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 5));
 
+var _index = _interopRequireDefault(__webpack_require__(/*! ./store/index.js */ 254));
 var _request = _interopRequireDefault(__webpack_require__(/*! ./utils/request.js */ 11));
+var _httpApi = _interopRequireWildcard(__webpack_require__(/*! @/common/http.api.js */ 258));
+
+
 var _utils = __webpack_require__(/*! ./utils/utils.js */ 25);
 
 
@@ -23,11 +28,27 @@ var _utils = __webpack_require__(/*! ./utils/utils.js */ 25);
 
 
 
-var _uviewUi = _interopRequireDefault(__webpack_require__(/*! uview-ui */ 26));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} // 挂载全局方法
-_vue.default.prototype.$axios = _request.default;_vue.default.prototype.$await = _utils.handlePromise;_vue.default.config.productionTip = false;_App.default.mpType = 'app'; // 引入全局uView
-_vue.default.use(_uviewUi.default);
-var app = new _vue.default(_objectSpread({},
-_App.default));
+
+
+
+
+
+
+
+
+
+
+var _uviewUi = _interopRequireDefault(__webpack_require__(/*! uview-ui */ 26));function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} // 挂载全局方法
+_vue.default.prototype.$axios = _request.default; // request 请求拦截
+_vue.default.prototype.$api = _httpApi.api; //接口 URL
+_vue.default.prototype.$await = _utils.handlePromise; // 处理 await
+// 引入uView提供的对vuex的简写法文件
+var vuexStore = __webpack_require__(/*! @/store/$u.mixin.js */ 256);_vue.default.mixin(vuexStore); // 引入uView对小程序分享的mixin封装
+var mpShare = __webpack_require__(/*! uview-ui/libs/mixin/mpShare.js */ 257);_vue.default.mixin(mpShare);_vue.default.config.productionTip = false;_App.default.mpType = 'app'; // 引入全局uView
+_vue.default.use(_uviewUi.default);var app = new _vue.default(_objectSpread({ store: _index.default }, _App.default));
+// http接口API抽离，免于写url或者一些固定的参数
+
+
 
 createApp(app).$mount();
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createApp"]))

@@ -1,5 +1,6 @@
 <template>
 	<view class="content">
+		{{vuex_version}}
 		<!-- <image class="logo" src="/static/logo.png"></image>
 		<view class="button-demo"><u-button :ripple="true" type="primary" @click="getLocation">按钮组件演示</u-button></view> -->
 	</view>
@@ -13,8 +14,15 @@ export default {
 		};
 	},
 	onLoad() {
-		this.getData();
-
+		 window.vue = this
+		 //this.getData();
+  //       setTimeout(()=>{
+		// 	 this.getData();
+		// },1100)
+		// setTimeout(()=>{
+		// 	 this.getData();
+		// },2100)
+      
 		uni.getLocation({
 			type: 'wgs84',
 			success: function(res) {

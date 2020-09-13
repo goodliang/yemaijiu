@@ -137,6 +137,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var _default =
 {
   data: function data() {
@@ -145,7 +146,14 @@ var _default =
 
   },
   onLoad: function onLoad() {
-    this.getData();
+    window.vue = this;
+    //this.getData();
+    //       setTimeout(()=>{
+    // 	 this.getData();
+    // },1100)
+    // setTimeout(()=>{
+    // 	 this.getData();
+    // },2100)
 
     uni.getLocation({
       type: 'wgs84',

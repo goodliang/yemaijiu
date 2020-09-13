@@ -62,5 +62,6 @@
       "desc": "你的位置信息将用于小程序为你推荐附近的门店服务"
     }
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap87.json"
 }

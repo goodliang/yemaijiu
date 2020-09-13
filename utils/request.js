@@ -8,6 +8,7 @@
 
 
 import Request from '@/plugins/luch-request/index.js'
+import {baseUrl} from '@/common/http.api.js'
 
 const getTokenStorage = () => {
 	let token = ''
@@ -23,7 +24,7 @@ const service = new Request()
 
 
 service.setConfig((config) => { /* 设置全局配置 */
-	config.baseURL = 'https://www.fastmock.site/mock/26243bdf9062eeae2848fc67603bda2d/luchrequest'
+	config.baseURL = baseUrl
 	config.custom = {
 		auth: true, // 是否传token
 		loading: true, // 是否使用loading
@@ -53,11 +54,18 @@ service.interceptors.response.use((response) => {
 		uni.hideLoading()
 	}
 	if (response.data.code !== 0) {
-		if (response.data.code === 4001) {
+		if (response.data.code == '0002') {
 			setTimeout(() => {
+				// #ifndef MP-WEIXIN
 				uni.navigateTo({
-					url: '/pages/passport/login/login.vue'
+					url: '/pages/passport/login'
 				})
+				// #endif
+				// #ifdef MP-WEIXIN
+				uni.navigateTo({
+					url: '/pages/passport/auth-wx'
+				})
+				// #endif
 			}, 1000)
 		} else {
 			if (response.config.custom.fail && response.data && response.data.msg) {

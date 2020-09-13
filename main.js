@@ -37,8 +37,4 @@ const app = new Vue({
 	...App
 })
 
-// http接口API抽离，免于写url或者一些固定的参数
-import httpApi from '@/common/http.api.js'
-
-
 app.$mount()

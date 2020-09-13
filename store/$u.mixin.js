@@ -20,6 +20,12 @@ module.exports = {
 			})
 		}
 	},
+	onLoad(){
+		// 开发调试用
+		// #ifdef H5 
+		window.vue = this
+		// #endif
+	},
 	computed: {
 		// 将vuex的state中的所有变量，解构到全局混入的mixin中
 		...mapState($uStoreKey)

@@ -10,13 +10,16 @@
 export default {
 	data() {
 		return {
-			title: 'Hello'
+			title: 'Hello',
+			name:'goodsliang'
 		};
 	},
-	onLoad() {
-		 window.vue = this
+	async onLoad() {
+		console.log(window)
+		let [err,res] =await  uni.getSystemInfo()
+		console.log(res)
 		 //this.getData();
-  //       setTimeout(()=>{
+        //setTimeout(()=>{
 		// 	 this.getData();
 		// },1100)
 		// setTimeout(()=>{

@@ -11,8 +11,6 @@ try{
 	
 }
 
-console.log(process.env.NODE_ENV,'process.env.NODE_ENV')
-
 // 需要永久存储，且下次APP启动需要取出的，在state中的变量名
 let saveStateKeys = ['vuex_user', 'vuex_token'];
 

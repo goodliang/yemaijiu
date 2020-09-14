@@ -1,41 +1,36 @@
 <template>
 	<view class="content">
-		{{vuex_version}}
+		{{ vuex_version }}
 		<!-- <image class="logo" src="/static/logo.png"></image>
 		<view class="button-demo"><u-button :ripple="true" type="primary" @click="getLocation">按钮组件演示</u-button></view> -->
 	</view>
 </template>
 
 <script>
+let page
 export default {
 	data() {
 		return {
 			title: 'Hello',
-			name:'goodsliang'
+			name: 'goodsliang',
+			pages:''
 		};
 	},
 	async onLoad() {
-		console.log(window)
-		let [err,res] =await  uni.getSystemInfo()
-		console.log(res)
-		 this.getData();
-		 this.getData();
-		 this.getData();
-		 this.getData();
-		 this.getData();
-		 this.getData();
-        setTimeout(()=>{
-			 this.getData();
-		},1100)
-		setTimeout(()=>{
-			 this.getData();
-		},2100)
-      
+		this.getData();
+		//       setTimeout(()=>{
+		// 	 this.getData();
+		// },1100)
+		// setTimeout(()=>{
+		// 	 this.getData();
+		// },2100)
+    
 		uni.getLocation({
 			type: 'wgs84',
 			success: function(res) {
 				console.log('当前位置的经度：' + res.longitude);
 				console.log('当前位置的纬度：' + res.latitude);
+				console.log(res)
 			},
 			fail(err) {
 				console.log('地址错误', err);
@@ -44,13 +39,13 @@ export default {
 	},
 	methods: {
 		async getData() {
-			let [err, res] = await this.$await(this.$axios.get('/api/user/lists'));
+			let [err, res] = await this.$await(this.$axios.get());
 			console.log(res);
 			console.log(err);
 		},
 		getLocation() {
 			uni.getLocation({
-				type: 'wgs84',
+				type: 'gcj02',
 				success: function(res) {
 					console.log('当前位置的经度：' + res.longitude);
 					console.log('当前位置的纬度：' + res.latitude);

@@ -18,13 +18,18 @@ export default {
 		console.log(window)
 		let [err,res] =await  uni.getSystemInfo()
 		console.log(res)
-		 //this.getData();
-        //setTimeout(()=>{
-		// 	 this.getData();
-		// },1100)
-		// setTimeout(()=>{
-		// 	 this.getData();
-		// },2100)
+		 this.getData();
+		 this.getData();
+		 this.getData();
+		 this.getData();
+		 this.getData();
+		 this.getData();
+        setTimeout(()=>{
+			 this.getData();
+		},1100)
+		setTimeout(()=>{
+			 this.getData();
+		},2100)
       
 		uni.getLocation({
 			type: 'wgs84',

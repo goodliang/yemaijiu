@@ -6,7 +6,7 @@
  * DCloud: http://ext.dcloud.net.cn/plugin?id=392
  */
 
-
+import store from '../store/index.js'
 import Request from '@/plugins/luch-request/index.js'
 import {baseUrl} from '@/common/http.api.js'
 
@@ -55,7 +55,8 @@ service.interceptors.response.use((response) => {
 	}
 	if (response.data.code !== 0) {
 		if (response.data.code == '0002') {
-			setTimeout(() => {
+			if(!store.state.isGOAuth){
+				store.commit("SET_GO_AUTH", true);
 				// #ifndef MP-WEIXIN
 				uni.navigateTo({
 					url: '/pages/passport/login'
@@ -66,7 +67,7 @@ service.interceptors.response.use((response) => {
 					url: '/pages/passport/auth-wx'
 				})
 				// #endif
-			}, 1000)
+			}
 		} else {
 			if (response.config.custom.fail && response.data && response.data.msg) {
 				uni.showToast({

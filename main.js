@@ -16,6 +16,10 @@ Vue.prototype.$axios = axios // request 请求拦截
 Vue.prototype.$api = api //接口 URL
 Vue.prototype.$await = handlePromise // 处理 await
 
+// jsonp 跨域
+import vueJsonp from 'vue-jsonp'
+Vue.use(vueJsonp)
+
 // 引入uView提供的对vuex的简写法文件
 let vuexStore = require('@/store/$u.mixin.js')
 Vue.mixin(vuexStore)

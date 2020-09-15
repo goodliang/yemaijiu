@@ -1,3 +1,19 @@
+.bold{
+	font-weight: 500;
+}
+.text-primary{
+	color:$u-type-primary
+}
+.white-bg{
+	background: #fff;
+}
+.gray-bx{
+	background-color: $u-border-color
+}
+.container{
+	background: $u-bg-color;
+	min-height: calc(100vh - var(--window-top));
+}
 .no-content{
 	padding-top: 380rpx;
 	display: flex;

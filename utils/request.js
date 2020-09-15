@@ -54,7 +54,7 @@ service.interceptors.response.use((response) => {
 		uni.hideLoading()
 	}
 	if (response.data.code !== 0) {
-		if (response.data.code == '0002') {
+		if (response.data.code == 4001) {
 			if(!store.state.isGOAuth){
 				store.commit("SET_GO_AUTH", true);
 				// #ifndef MP-WEIXIN

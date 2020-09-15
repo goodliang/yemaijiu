@@ -66,7 +66,8 @@
     "mp-weixin" : {
         "appid" : "wx2bd582f5bd089ebe",
         "setting" : {
-            "urlCheck" : false
+            "urlCheck" : false,
+            "es6" : true
         },
         "usingComponents" : true,
         "permission" : {
@@ -88,6 +89,13 @@
         "template" : "template.h5.html",
         "router" : {
             "mode" : "history"
+        },
+        "sdkConfigs" : {
+            "maps" : {
+                "qqmap" : {
+                    "key" : "VNYBZ-BYVKX-FPU4D-7MK4K-JZLNF-SOFEM"
+                }
+            }
         }
     }
 }

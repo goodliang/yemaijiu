@@ -35,7 +35,6 @@ export default {
 				console.log('地址错误', err);
 			}
 		});
-		this.getLocation()
 	},
 	methods: {
 		async getData() {

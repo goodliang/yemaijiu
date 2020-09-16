@@ -21,36 +21,49 @@
 				</view>
 			</u-cell-item>
 		</u-cell-group>
-		<u-cell-group title="附近地址"><u-cell-item title="河南开封市清明上河园" :arrow="false" v-for="(item, index) in 13" :key="index"></u-cell-item></u-cell-group>
+		<u-cell-group title="附近地址"><u-cell-item :title="item.title" :arrow="false" v-for="(item, index) in nearbyList" :key="index"></u-cell-item></u-cell-group>
 	</view>
 </template>
 
 <script>
+// #ifdef H5
+import QQMapWX from '@/utils/qqmap-h5-jssdk.min.js';
+// #endif
+// #ifndef H5
 import QQMapWX from '@/utils/qqmap-wx-jssdk.min.js';
+// #endif
+
 export default {
 	data() {
 		return {
+			nearbyList:[],
 			isShowCity: true,
-			qqMap: new QQMapWX({ key: 'VNYBZ-BYVKX-FPU4D-7MK4K-JZLNF-SOFEM', vm: this })
+			qqMap: new QQMapWX({ key: this.$baseConfig.mapKey, vm: this })
 		};
 	},
 	onLoad() {
-		this.qqMap.search({
-			keyword: 'kfc', //搜索关键词
-			location: '39.980014,116.313972', //设置周边搜索中心点
-			success: function(res) {
-				//搜索成功后的回调
-				console.log(res);
-			},
-			fail: function(res) {
-				console.log(res);
-			},
-			complete: function(res) {
-				console.log(res);
-			}
-		});
+		this.getNearbyAddress()
 	},
-	methods: {}
+	methods: {
+		async getNearbyAddress() {
+			let [err, res] = await uni.getLocation();
+			this.qqMap.reverseGeocoder({
+				location: {
+					latitude: res.latitude,
+					longitude: res.longitude
+				},
+				poi_options:'page_size=5;address_format=short;policy=2;radius=1000',
+				get_poi: 1,
+				success: res => {
+					console.log(res)
+					this.nearbyList = res.result.pois
+				},
+				fail: err => {
+					console.log(err);
+				}
+			});
+		}
+	}
 };
 </script>
 

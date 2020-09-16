@@ -15,10 +15,13 @@
 </template>
 
 <script>
-const QQMapWX = require('@/utils/qqmap-wx-jssdk.min.js');
-const qqmapsdk = new QQMapWX({
-	key: 'VNYBZ-BYVKX-FPU4D-7MK4K-JZLNF-SOFEM'
-});
+// #ifdef H5
+import QQMapWX from '@/utils/qqmap-h5-jssdk.min.js';
+// #endif
+// #ifndef H5
+import QQMapWX from '@/utils/qqmap-wx-jssdk.min.js';
+// #endif
+
 export default {
 	name: 'y-search-address',
 	data() {
@@ -26,7 +29,8 @@ export default {
 			nearbyList: [],
 			cityChecked: false,
 			nearbyView: false,
-			isShowCity: false
+			isShowCity: false,
+			qqMap: new QQMapWX({ key: this.$baseConfig.mapKey, vm: this })
 		};
 	},
 	onLoad() {

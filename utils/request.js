@@ -8,7 +8,9 @@
 
 import store from '../store/index.js'
 import Request from '@/plugins/luch-request/index.js'
-import {baseUrl} from '@/common/http.api.js'
+import {
+	baseConfig
+} from '@/common/http.api.js'
 
 const getTokenStorage = () => {
 	let token = ''
@@ -24,7 +26,7 @@ const service = new Request()
 
 
 service.setConfig((config) => { /* 设置全局配置 */
-	config.baseURL = baseUrl
+	config.baseURL = baseConfig.baseUrl
 	config.custom = {
 		auth: true, // 是否传token
 		loading: true, // 是否使用loading
@@ -55,7 +57,7 @@ service.interceptors.response.use((response) => {
 	}
 	if (response.data.code !== 0) {
 		if (response.data.code == 4001) {
-			if(!store.state.isGOAuth){
+			if (!store.state.isGOAuth) {
 				store.commit("SET_GO_AUTH", true);
 				// #ifndef MP-WEIXIN
 				uni.navigateTo({

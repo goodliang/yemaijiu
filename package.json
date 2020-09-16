@@ -1,0 +1,23 @@
+{
+  "name": "yemaijiu",
+  "version": "1.0.0",
+  "description": "new jiu",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goodliang/yemaijiu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goodliang/yemaijiu/issues"
+  },
+  "homepage": "https://github.com/goodliang/yemaijiu#readme",
+  "dependencies": {
+    "vue-jsonp": "^0.1.8"
+  }
+}

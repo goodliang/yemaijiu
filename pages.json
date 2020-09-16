@@ -4,12 +4,6 @@
 	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 	    {
-	        "path" : "pages/address/select",
-	        "style" : {
-				"navigationBarTitleText": "选择地址"
-			}
-	    }
-		,{
             "path" : "pages/tabBar/index/index",
             "style" : {}
         }
@@ -53,6 +47,12 @@
             "path" : "pages/404/404",
             "style" : {}
         }
+		,{
+	        "path" : "pages/address/select",
+	        "style" : {
+				"navigationBarTitleText": "选择地址"
+			}
+	    }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

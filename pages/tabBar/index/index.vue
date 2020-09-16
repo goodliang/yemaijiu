@@ -1,8 +1,7 @@
 <template>
 	<view class="content">
 		{{ vuex_version }}
-		<!-- <image class="logo" src="/static/logo.png"></image>
-		<view class="button-demo"><u-button :ripple="true" type="primary" @click="getLocation">按钮组件演示</u-button></view> -->
+		<view class="button-demo"><u-button :ripple="true" type="primary" @click="selectAddress">选择地址</u-button></view>
 	</view>
 </template>
 
@@ -40,12 +39,12 @@ export default {
 	},
 	methods: {
 		async getData() {
-			let [err, res] = await this.$await(this.$axios.get());
+			let [err, res] = await this.$await(this.$axios.get('/api/user/list'));
 			console.log(res);
 			console.log(err);
 		},
-		getLocation() {
-			
+		selectAddress() {
+			this.$u.route('/pages/address/select')
 		}
 	}
 };
